@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static './style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="{% static './main.js'%}"></script>
+</head>
+<body>
+    <div class="scrollToTop_btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <header>
+        <a href="#main" class="brand">Kamronbek</a>
+        <div class="menu_btn"></div>
+        <div class="navigation">
+            <a href="#main">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <section class="main" id="main">
+        <div class="content">
+            <h2>Hello, I'm </h2>
+            <h2 class="men" > <span> Joʻraboyev Kamronbek</span></h2>
+            <div class="animated_text">
+                
+                <h3>Web Developer</h3>
+                <h3>SSM menejer</h3>
+                <h3>Kompyuter operator</h3>
+            </div>
+            <a href="#" class="btn">See My Work</a>
+            <div class="media_icons">
+                <a href="https://www.facebook.com/profile.php?id=100070115541284"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Joraboyev_8999"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/joraboyev04"><i class="fab fa-github"></i></a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="title reveal">
+            <div class="section_title">About Me</div>
+        </div>
+        <div class="content">
+            {% for p in picture %}
+            <div class="column col_left reveal">
+                <div class="img_card">
+                    <img src="{{ p.picture.url }}" alt="My picture">
+                </div>
+            </div>
+            {% endfor %}
+            {% for i in ozim %}
+            <div class="column col_right reveal">
+                <h2 class="content_title">{{ i.title }}</h2>
+                <p class="paragraph_text">{{ i.text }}</p><br>
+               
+                <a href="{% static './images/Kamronresume.pdf'%}" class="btn" download=""> Download CV</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="title reveal">
+            <div class="section_title">My Skills</div>
+        </div>
+        <div class="content">
+            <div class="column col_left reveal">
+                <h2 class="content_title">My Skills and Experiences</h2>
+                <p>Hard skill: MC Office dasturlaridan yaxshi foydalanish, HTML, CSS, BOOTSTRAP, JAVASCRIPT, PYTHON, DJANGO, DRF,SQLITE, MYSQL va B1 Ingliz tili sertifikat. <br>
+                   <br>   Soft skill: Moslashuvchanlik, Qiziquvchanlik, Xushmuomila, Ishni o’z vaqtida bajarish, Intiluvchan, Masulyatlilik va Puxtalik. <br>
+                   <br>   Experience: 04.01.2022-09.09.2022 vaqt oralig’ida uzinfocomga qarashli IT Panda kompaniyada database dasturchi bolib ishlaganman
+                </p>
+
+            </div>
+            <div class="column col_right reveal">
+                {% for m in bilim %}
+                <div class="bar">
+                    <div class="info">
+                        <span>{{ m.name }}</span>
+                        <span>{{ m.foiz }}</span>
+                    </div>
+                    <div class=" {{ m.cl }}"></div>
+
+                </div>
+                  {% endfor %}
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="title reveal">
+        <div class="section_title">My Services</div>
+        <p>
+Kompyuter boyicha koplab ishlarni qilib xalqimizga xolis xizmat qilish. Telegram bot, Web saytlar, Smm xizmatlari, Microsoft office dasturlaridan ishlarni qilamiz.
+</p>
+        </div>
+        <div class="content">
+            <div class="card reveal">
+                <div class="service_icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <div class="info">
+                    <h3>Microsoft office</h3>
+                    <p>Word, Excel, Power Point xizmatlarini qilamiz</p>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="service_icon">
+                    <i class="fas fa-file-code"></i>
+                </div>
+                <div class="info">
+                    <h3>Web Developer</h3>
+                    <p>Biznesingiz uchun web saytlar. Automatlashtirish ishlarini ham taklif qilamiz</p>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="service_icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="info">
+                    <h3>SMM</h3>
+                    <p>Biznesingizni rivojlantirish uchun SMM xizmatlari, Telegram botlarni yuritishni taklif qilamiz.</p>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="work" id="work">
+        <div class="title reveal">
+            <div class="section_title">My Work</div>
+        </div>
+        <div class="content">
+            <div class="card reveal">
+                <div class="card_img">
+                    <img src="{% static './images/rasm2.jpg'%}" alt="my_work">
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card_img">
+                    <img src="{% static './images/rasm1.jpg'%}" alt="my_work">
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card_img">
+                    <img src="{% static './images/images (1).jfif'%}" alt="my_work">
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="title reveal">
+            <div class="section_title">Contact Me</div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="card reveal">
+                    <div class="contact_icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Address</h3>
+                        <span>Andijan City</span>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="contact_icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Phone</h3>
+                        <span>+998(93) 879 89 99</span>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="contact_icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Email Address</h3>
+                        <span class="email" style="font-size: smaller;">joraboyevkamron046@gmail.com</span>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="contact_icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Website</h3>
+                        <span>travertin-decorate.uz</span>
+                    </div>
+                </div>
+            </div>
+            <form action="/send-msg/" method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="contact_form reveal">
+                        <h3>Send Message</h3>
+                        <div class="input_box">
+                            <input name="name" type="text" placeholder="Name">
+                        </div>
+                        <div class="input_box">
+                            <input name="email" type="email " placeholder="Email">
+                        </div>
+                        <div class="input_box">
+                            <textarea  name="message" id="message" cols="80" rows="8" placeholder="Message"></textarea>
+                        </div>
+                        <div class="input_box">
+                            <button class="send_btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <span class="footer_title">Joʻraboyev Kamronbek</span>
+
+    </footer>
+    
+    
+</body>
+</html>
